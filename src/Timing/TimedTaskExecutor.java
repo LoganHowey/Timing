@@ -10,14 +10,15 @@ public class TimedTaskExecutor {
 
     };
 
-    public TimedTaskResult execute(Supplier<TimedTask>, int) {
-        return new TimedTaskResult(max(), min(), mean(), times(), trials());
+    public TimedTaskResult execute(Supplier<TimedTask> w, int trials) {
+        TimedTask timedTask = w.get();
+        timedTask.execute();
+        return null;
     }
 
     public static void main(String[] args) {
         TimedTaskExecutor timedTaskExecutor = new TimedTaskExecutor();
         ArrayList<TimedTaskResult> results = new ArrayList<>();
 
-        results.add(timedTaskExecutor.execute(() -> new AddLongOperation(square(1)), 1));
     }
 }
