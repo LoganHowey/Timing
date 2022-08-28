@@ -3,13 +3,14 @@ package Timing;
 import java.util.List;
 
 public class TimedTaskResult {
+    private List<Long> resultList;
     public TimedTaskResult(List<Long> resultList) {
-
+    this.resultList = resultList;
     }
 
-    public static Long max() {
+    public Long max() {
         long maximum = 0;
-        for (int i = 0; i < resultList.size() i++){
+        for (int i = 0; i < this.resultList.size(); i++){
             Long newElement = resultList.get(i);
             if (newElement > maximum)
                 newElement = maximum;
@@ -17,7 +18,7 @@ public class TimedTaskResult {
         return maximum;
     }
 
-    public static Double mean(){
+    public Double mean(){
         int total = 0;
         for (int i = 0; i < resultList.size() i++){
             total += resultList.get(i)};
