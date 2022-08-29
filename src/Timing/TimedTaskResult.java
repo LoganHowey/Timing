@@ -3,7 +3,7 @@ package Timing;
 import java.util.List;
 
 public class TimedTaskResult {
-    private List<Long> resultList;
+    public List<Long> resultList;
     public TimedTaskResult(List<Long> resultList) {
     this.resultList = resultList;
     }
@@ -11,35 +11,36 @@ public class TimedTaskResult {
     public Long max() {
         long maximum = 0;
         for (int i = 0; i < this.resultList.size(); i++){
-            Long newElement = resultList.get(i);
-            if (newElement > maximum)
-                newElement = maximum;
+            long newElement = resultList.get(i);
+            if (newElement > maximum){
+                maximum = newElement;
+                }
         }
         return maximum;
     }
 
     public Double mean(){
         int total = 0;
-        for (int i = 0; i < resultList.size() i++){
-            total += resultList.get(i)};
+        for (int i = 0; i < resultList.size(); i++){
+            total += resultList.get(i);
         }
-       Double resultMean = total / resultList.size();
+       Double resultMean = Double.valueOf(total / resultList.size());
        return resultMean;
     }
-    public static Long min(){
+    public Long min(){
         long minimum = 999999999;
-        for (int i = 0; i < resultList.size() i++){
+        for (int i = 0; i < resultList.size(); i++){
             Long newElement = resultList.get(i);
             if (newElement < minimum)
-                newElement = minimum;}
+                minimum = newElement;}
 
         return minimum;
     }
-    public static List<Long> times(){
-        return null;
+    public List<Long> times(){
+        return resultList;
     }
-    public static int trials(){
-        return 0;
+    public int trials(){
+        return resultList.size();
 
     }
 }

@@ -16,8 +16,6 @@ public class AddLongOperation implements TimedTask{
         }
         long endTime = System.currentTimeMillis();
         long totalTime = endTime-startTime;
-        System.out.println(totalTime);
-
     }
 
 
