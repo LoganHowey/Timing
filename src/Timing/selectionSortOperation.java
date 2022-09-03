@@ -30,9 +30,6 @@ public class selectionSortOperation implements TimedTask {
         long startTime = System.currentTimeMillis();
         {
             int min; /* index of minimum */
-            for (int check = 0; check < i; check++){
-                System.out.println(data[check]);}
-            System.out.println("end");
             for (int index = 0; index < this.i - 1; index++) {
                 min = index;
                 long swapping = 0;
@@ -46,8 +43,6 @@ public class selectionSortOperation implements TimedTask {
                     }
                 }
             }
-            for (int check = 0; check < i; check++)
-                System.out.println(data[check]);
             long endTime = System.currentTimeMillis();
             long totalTime = endTime - startTime;
             return totalTime;

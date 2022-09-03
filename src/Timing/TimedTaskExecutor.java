@@ -23,7 +23,17 @@ public class TimedTaskExecutor {
         TimedTaskExecutor timedTaskExecutor = new TimedTaskExecutor();
         ArrayList<TimedTaskResult> results = new ArrayList<>();
 
-        results.add(timedTaskExecutor.execute(() -> new selectionSortOperation(10, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new selectionSortOperation(1000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new selectionSortOperation(100_000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new selectionSortOperation(1_000_000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new insertionSortOperation(1000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new insertionSortOperation(100_000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new insertionSortOperation(1_000_000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new arraySortOperation(1000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new arraySortOperation(100_000, "Random"), 1));
+        results.add(timedTaskExecutor.execute(() -> new arraySortOperation(1_000_000, "Random"), 1));
+
+
         System.out.format("| Trials | Max | Mean | Min | Times | %n");
         for (TimedTaskResult execute : results) {
             System.out.format("| %s | %s | %s | %s | %s | %n", execute.trials(), execute.max(), execute.mean(), execute.min(), execute.times());

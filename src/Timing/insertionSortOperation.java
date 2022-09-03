@@ -28,7 +28,6 @@ public class insertionSortOperation implements TimedTask {
 
     public long execute() {
         long startTime = System.currentTimeMillis();
-        System.out.println(data[0]);
         for (int index = 1; index < i; index++) {
             int j = index;
             long swapping = 0;
@@ -39,9 +38,6 @@ public class insertionSortOperation implements TimedTask {
                 j--;
             }
         }
-        for (int check = 0; check < i; check++)
-            System.out.println(data[check]);
-        System.out.println(data[0]);
         long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         return totalTime;
