@@ -24,6 +24,7 @@ public class TimedTaskResult {
         for (int i = 0; i < resultList.size(); i++){
             total += resultList.get(i);
         }
+
        Double resultMean = Double.valueOf(total / resultList.size());
        return resultMean;
     }
