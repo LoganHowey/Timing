@@ -28,24 +28,20 @@ public class selectionSortOperation implements TimedTask {
 
     public long execute() {
         long startTime = System.currentTimeMillis();
-        {
-            int min; /* index of minimum */
             for (int index = 0; index < this.i - 1; index++) {
-                min = index;
-                long swapping = 0;
+                int min = index;
                 int j;
                 for (j = index + 1; j < i; j++) {
                     if (data[j] < data[min]) {
                         min = j;
-                        swapping = data[index];
-                        data[index] = data[min];
-                        data[min] = swapping;
                     }
                 }
-            }
+                        long swapping = data[min];
+                        data[min] = data[index];
+                        data[index] = swapping;
+                    }
             long endTime = System.currentTimeMillis();
             long totalTime = endTime - startTime;
             return totalTime;
         }
     }
-}
